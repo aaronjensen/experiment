@@ -1,0 +1,16 @@
+!!!
+html
+  head
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js")
+    script(src="/application.js")
+  body
+    p!= partial('partial')
+    p Hello 
+      = name
+    #test
+    :javascript
+      | this.partial = function(template) {
+      |   return require(template)();
+      | }
+      | var test = require('small');
+      | $('#test').html(test());
